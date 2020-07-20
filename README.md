@@ -1,6 +1,28 @@
-# Frontend
+# Générer les Certifs
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 10.0.0.
+`openssl req -newkey rsa:2048 -nodes -keyout privkey.pem -x509 -days 36500 -out certificate.csr`
+
+`ng serve --ssl --ssl-cert certificate.pem --ssl-key privkey.pem`
+
+`"start": "ng serve --proxy-config  --ssl --ssl-key privkey.pem --ssl-cert certificate.pem",`
+
+proxy.json
+----------
+` {
+  "/api": {
+    "target": "https://localhost:9000",
+    "secure": false
+  }
+
+}
+`
+
+
+# Verification du cert et la clé.
+
+`openssl x509 -noout -modulus -in certificate.csr | openssl md5`
+
+openssl rsa -noout -modulus -in privkey.pem| openssl md5
 
 ## Development server
 
