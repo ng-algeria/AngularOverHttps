@@ -8,7 +8,18 @@
 
 proxy.json
 ----------
+<<<<<<< HEAD
 `{"/api": {"target": "https://localhost:9000","secure": false}}`
+=======
+` {
+  "/api": {
+    "target": "https://localhost:9000",
+    "secure": false
+  }
+
+}
+`
+>>>>>>> 731766789e1dac014d6a7118bdd08ba2b97b7316
 
 
 # Verification du cert et la clé.
