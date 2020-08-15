@@ -1,10 +1,13 @@
 import * as https from 'https';
 import * as fs from 'fs';
-const PORT = 9000;
+
+const port = 9000;
+
 const httpsOptions = {
-    key: fs.readFileSync('./../ssl/key.pem'),
-    cert: fs.readFileSync('./../ssl/cert.pem')
+    cert: fs.readFileSync('./../ssl/cert.pem'),
+    key: fs.readFileSync('./../ssl/key.pem')
 }
-https.createServer(httpsOptions).listen(PORT, () => {
-    console.log('Express server listening on port ' + PORT);
+
+https.createServer(httpsOptions).listen(port, () => {
+    console.log('Server start at port https://localhost:' + port);
 })
